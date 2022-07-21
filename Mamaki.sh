@@ -84,8 +84,15 @@ cp $HOME/networks/mamaki/genesis.json $HOME/.celestia-app/config
 #function setseedsandpeers 
 echo -e "\e[1m\e[32mSet seeds and peers  \e[0m" && sleep 1
 BOOTSTRAP_PEERS=$(curl -sL https://raw.githubusercontent.com/celestiaorg/networks/master/mamaki/bootstrap-peers.txt | tr -d '\n')
-#echo $BOOTSTRAP_PEERS
+MY_PEER=$(celestia-appd tendermint show-node-id)@$(curl -s ifconfig.me)$(grep -A 9 "\[p2p\]" ~/.celestia-app/config/config.toml | egrep -o ":[0-9]+")
+PEERS=$(curl -sL https://raw.githubusercontent.com/celestiaorg/networks/master/mamaki/peers.txt | tr -d '\n' | head -c -1 | sed s/"$MY_PEER"// | sed "s/,,/,/g")
 sed -i.bak -e "s/^bootstrap-peers *=.*/bootstrap-peers = \"$BOOTSTRAP_PEERS\"/" $HOME/.celestia-app/config/config.toml
+sed -i.bak -e "s/^persistent-peers *=.*/persistent-peers = \"$PEERS\"/" $HOME/.celestia-app/config/config.toml
+
+
+
+
+
 
 #function configpruning
 echo -e "\e[1m\e[32mConfig pruning \e[0m" && sleep 1
