@@ -22,7 +22,7 @@ sudo  apt update && apt install git sudo unzip wget -y < "/dev/null"
 
 #function Installingdependencies 
 echo -e "\e[1m\e[32mInstalling dependencies \e[0m" && sleep 1
-sudo apt install curl tar wget clang pkg-config libssl-dev jq build-essential git make ncdu -y < "/dev/null"
+sudo apt install curl tar wget vim clang pkg-config libssl-dev jq build-essential git make ncdu -y < "/dev/null"
 
 
 
@@ -153,8 +153,8 @@ echo -e "\e[1m\e[32mYour celestia Validator address : $(celestia-appd keys show 
 
 echo " "
 echo "==========================================================================================================================="        
-echo 'export WALLET_ADDRESS='${WALLET_ADDRESS} >> $HOME/.bash_profile
-echo 'export VALOPER_ADDRESS='${VALOPER_ADDRESS} >> $HOME/.bash_profile
+echo 'export WALLET_ADDRESS='$(celestia-appd keys show ${WALLET} -a) >> $HOME/.bash_profile
+echo 'export VALOPER_ADDRESS='$(celestia-appd keys show ${WALLET} --bech val -a) >> $HOME/.bash_profile
 source $HOME/.bash_profile
 
 
