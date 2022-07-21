@@ -141,9 +141,14 @@ sudo systemctl daemon-reload
 sudo systemctl enable celestia-appd
 sudo systemctl restart celestia-appd
 
+echo "==========================================================================================================================="        
+echo " "
+
 echo -e "\e[1m\e[32mYour celestia Wallet address : $(celestia-appd keys show ${WALLET} -a)\e[0m" && sleep 1
 echo -e "\e[1m\e[32mYour celestia Validator address : $(celestia-appd keys show ${WALLET} --bech val -a)\e[0m" && sleep 1
 
+echo " "
+echo "==========================================================================================================================="        
 echo 'export WALLET_ADDRESS='${WALLET_ADDRESS} >> $HOME/.bash_profile
 echo 'export VALOPER_ADDRESS='${VALOPER_ADDRESS} >> $HOME/.bash_profile
 source $HOME/.bash_profile
