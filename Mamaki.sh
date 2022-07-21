@@ -74,6 +74,7 @@ source $HOME/.bash_profile
 echo -e "\e[1m\e[32mSetup Wallet \e[0m" && sleep 1
 celestia-appd config chain-id mamaki
 celestia-appd config keyring-backend test
+celestia-appd keys add $WALLET
 
 
 
