@@ -10,11 +10,26 @@ The following hardware minimum requirements are recommended for running the vali
 >:black_square_button:Bandwidth: 1 Gbps for Download/100 Mbps for Upload<br> 
 >:black_square_button:TCP Port: 26656,26657,26660,9090<br>
 
-## Clone and Install Scripts
+## 1. Setup Validator Node
 
 ```
 
 wget -q -O Mamaki.sh https://raw.githubusercontent.com/NunoyHaxxana/Celestia/main/Mamaki.sh && chmod +x Mamaki.sh && sudo /bin/bash Mamaki.sh
 ```
 
+## 2. Setup Bridge Node
+
+```
+
+wget -q -O Bridge_Node.sh https://raw.githubusercontent.com/NunoyHaxxana/Celestia/main/Bridge_Node.sh && chmod +x Bridge_Node.sh && sudo /bin/bash Bridge_Node.sh
+```
+
+
+
+## 3. Connect Validator
+
+```
+
+wget -q -O create-validator.sh https://raw.githubusercontent.com/NunoyHaxxana/Celestia/main/create-validator.sh && chmod +x create-validator.sh && sudo /bin/bash create-validator.sh
+```
 
