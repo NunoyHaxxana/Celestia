@@ -68,13 +68,9 @@ celestia-appd init ${nodename} --chain-id mamaki && sleep 2
 read -p "Insert wallet name: " walletname && sleep 2
 echo 'export WALLET='${walletname} >> $HOME/.bash_profile
 source $HOME/.bash_profile
-
-
-#function setupwallet 
-echo -e "\e[1m\e[32mSetup Wallet \e[0m" && sleep 1
 celestia-appd config chain-id mamaki
 celestia-appd config keyring-backend test
-celestia-appd keys add $WALLET
+
 
 
 
@@ -88,7 +84,7 @@ cp $HOME/networks/mamaki/genesis.json $HOME/.celestia-app/config
 #function setseedsandpeers 
 echo -e "\e[1m\e[32mSet seeds and peers  \e[0m" && sleep 1
 BOOTSTRAP_PEERS=$(curl -sL https://raw.githubusercontent.com/celestiaorg/networks/master/mamaki/bootstrap-peers.txt | tr -d '\n')
-echo $BOOTSTRAP_PEERS
+#echo $BOOTSTRAP_PEERS
 sed -i.bak -e "s/^bootstrap-peers *=.*/bootstrap-peers = \"$BOOTSTRAP_PEERS\"/" $HOME/.celestia-app/config/config.toml
 
 #function configpruning
@@ -142,6 +138,13 @@ sudo systemctl daemon-reload
 sudo systemctl enable celestia-appd
 sudo systemctl restart celestia-appd
 
+echo "==========================================================================================================================="        
+echo " "
+
+#function setupwallet 
+echo -e "\e[1m\e[32mSetup Wallet \e[0m" && sleep 1
+celestia-appd keys add $WALLET
+echo " "
 echo "==========================================================================================================================="        
 echo " "
 
