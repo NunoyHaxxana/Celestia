@@ -63,7 +63,11 @@ git clone https://github.com/celestiaorg/networks.git
 #function setupconfig 
 echo -e "\e[1m\e[32mSetup mamaki config \e[0m" && sleep 1
 read -p "Insert node name: " nodename && sleep 2
-celestia-appd init ${nodename} --chain-id mamaki
+echo 'export NODENAME='${nodename} >> $HOME/.bash_profile
+celestia-appd init ${nodename} --chain-id mamaki && sleep 2
+read -p "Insert wallet name: " walletname && sleep 2
+echo 'export WALLET='${walletname} >> $HOME/.bash_profile
+source $HOME/.bash_profile
 
 
 #function setupwallet 
@@ -137,6 +141,11 @@ sudo systemctl daemon-reload
 sudo systemctl enable celestia-appd
 sudo systemctl restart celestia-appd
 
+echo -e "\e[1m\e[32mYour celestia Wallet address : $(celestia-appd keys show ${WALLET} -a)\e[0m" && sleep 1
+echo -e "\e[1m\e[32mYour celestia Validator address : $(celestia-appd keys show ${WALLET} --bech val -a)\e[0m" && sleep 1
 
+echo 'export WALLET_ADDRESS='${WALLET_ADDRESS} >> $HOME/.bash_profile
+echo 'export VALOPER_ADDRESS='${VALOPER_ADDRESS} >> $HOME/.bash_profile
+source $HOME/.bash_profile
 
 
