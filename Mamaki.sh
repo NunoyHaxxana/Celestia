@@ -67,7 +67,7 @@ celestia-appd init ${nodename} --chain-id mamaki
 
 
 #function setupwallet 
-echo -e "\e[1m\e[32mSetup mamaki config \e[0m" && sleep 1
+echo -e "\e[1m\e[32mSetup Wallet \e[0m" && sleep 1
 celestia-appd config chain-id mamaki
 celestia-appd config keyring-backend test
 
