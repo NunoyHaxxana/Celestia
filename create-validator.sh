@@ -20,12 +20,17 @@ echo -e "\e[1m\e[32mRun a Validator Node \e[0m" && sleep 1
 celestia-appd tx staking create-validator \
   --amount 10000000utia \
   --from $WALLET \
-  --commission-max-change-rate "0.01" \
-  --commission-max-rate "0.2" \
-  --commission-rate "0.07" \
-  --min-self-delegation "1" \
-  --pubkey  $(celestia-appd tendermint show-validator) \
   --moniker $NODENAME \
+  --pubkey  $(celestia-appd tendermint show-validator) \
+  --commission-rate=0.1 \
+  --commission-max-rate=0.2 \
+  --commission-max-change-rate=0.01 \
+  --min-self-delegation=1000000 \
+  --keyring-backend=test \
   --chain-id mamaki
+  
+  
+
+    
   
   echo "==========================================================================================================================="     
