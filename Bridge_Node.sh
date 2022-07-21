@@ -23,8 +23,7 @@ cd celestia-node/
 git checkout tags/v0.3.0-rc2
 make install
 
-node_ip=$(curl -s ifconfig.me)
-celestia bridge init --core.remote tcp://${node_ip}:26657 --core.grpc tcp://${node_ip}:9090
+
 celestia bridge init --core.remote tcp://localhost:26657 --core.grpc tcp://localhost:9090
 
 
