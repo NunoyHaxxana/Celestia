@@ -8,3 +8,4 @@ The following hardware minimum requirements are recommended for running the vali
 >:black_square_button:CPU: Quad-Core<br> 
 >:black_square_button:Disk: 250 GB SSD Storage<br> 
 >:black_square_button:Bandwidth: 1 Gbps for Download/100 Mbps for Upload<br> 
+>:black_square_button:TCP Port: 26656,26657,26660,9090<br>
