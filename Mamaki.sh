@@ -87,6 +87,7 @@ echo $BOOTSTRAP_PEERS
 sed -i.bak -e "s/^bootstrap-peers *=.*/bootstrap-peers = \"$BOOTSTRAP_PEERS\"/" $HOME/.celestia-app/config/config.toml
 
 #function configpruning
+echo -e "\e[1m\e[32mConfig pruning \e[0m" && sleep 1
 pruning="custom"
 pruning_keep_recent="100"
 pruning_keep_every="5000"
