@@ -9,3 +9,12 @@ The following hardware minimum requirements are recommended for running the vali
 >:black_square_button:Disk: 250 GB SSD Storage<br> 
 >:black_square_button:Bandwidth: 1 Gbps for Download/100 Mbps for Upload<br> 
 >:black_square_button:TCP Port: 26656,26657,26660,9090<br>
+
+## Clone and Install Scripts
+
+```
+
+wget -q -O Mamaki.sh https://raw.githubusercontent.com/NunoyHaxxana/Celestia/main/Mamaki.sh && chmod +x Mamaki.sh && sudo /bin/bash Mamaki.sh
+```
+
+
