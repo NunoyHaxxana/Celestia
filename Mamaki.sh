@@ -62,7 +62,7 @@ git clone https://github.com/celestiaorg/networks.git
 
 #function setupconfig 
 echo -e "\e[1m\e[32mSetup mamaki config \e[0m" && sleep 1
-read -p "Insert node name: " nodename 
+read -p "Insert node name: " nodename && sleep 2
 celestia-appd init ${nodename} --chain-id mamaki
 
 
