@@ -81,11 +81,60 @@ cp $HOME/networks/mamaki/genesis.json $HOME/.celestia-app/config
 
 
 #function setseedsandpeers 
+echo -e "\e[1m\e[32mSet seeds and peers  \e[0m" && sleep 1
 BOOTSTRAP_PEERS=$(curl -sL https://raw.githubusercontent.com/celestiaorg/networks/master/mamaki/bootstrap-peers.txt | tr -d '\n')
 echo $BOOTSTRAP_PEERS
 sed -i.bak -e "s/^bootstrap-peers *=.*/bootstrap-peers = \"$BOOTSTRAP_PEERS\"/" $HOME/.celestia-app/config/config.toml
 
+#function configpruning
+pruning="custom"
+pruning_keep_recent="100"
+pruning_keep_every="5000"
+pruning_interval="10"
 
+sed -i -e "s/^pruning *=.*/pruning = \"$pruning\"/" $HOME/.celestia-app/config/app.toml
+sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" $HOME/.celestia-app/config/app.toml
+sed -i -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"$pruning_keep_every\"/" $HOME/.celestia-app/config/app.toml
+sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.celestia-app/config/app.toml
+
+
+#function setvalidatormode
+echo -e "\e[1m\e[32mSet validator node  \e[0m" && sleep 1
+sed -i.bak -e "s/^mode *=.*/mode = \"validator\"/" $HOME/.celestia-app/config/config.toml
+
+#function quickSync 
+cd $HOME
+rm -rf ~/.celestia-app/data
+mkdir -p ~/.celestia-app/data
+SNAP_NAME=$(curl -s https://snaps.qubelabs.io/celestia/ | egrep -o ">mamaki.*tar" | tr -d ">")
+wget -O - https://snaps.qubelabs.io/celestia/${SNAP_NAME} | tar xf - -C ~/.celestia-app/data/
+
+
+#function createservice 
+echo -e "\e[1m\e[32mSet service  \e[0m" && sleep 1
+tee $HOME/celestia-appd.service > /dev/null <<EOF
+[Unit]
+Description=celestia-appd
+After=network.target
+[Service]
+Type=simple
+User=$USER
+ExecStart=$(which celestia-appd) start
+Restart=on-failure
+RestartSec=10
+LimitNOFILE=65535
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo mv $HOME/celestia-appd.service /etc/systemd/system/
+
+
+#function startservice 
+echo -e "\e[1m\e[32mStart service  \e[0m" && sleep 1
+sudo systemctl daemon-reload
+sudo systemctl enable celestia-appd
+sudo systemctl restart celestia-appd
 
 
 
