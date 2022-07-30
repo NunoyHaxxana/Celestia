@@ -23,9 +23,9 @@ cd celestia-node/
 git checkout tags/v0.3.0-rc2
 make install
 
-
+sleep 3
 celestia bridge init --core.remote tcp://localhost:26657 --core.grpc tcp://localhost:9090
-
+sleep 3
 
 sudo tee <<EOF >/dev/null /etc/systemd/system/celestia-bridge.service
 [Unit]
@@ -43,8 +43,18 @@ LimitNOFILE=4096
 WantedBy=multi-user.target
 EOF
 
-
+sleep 3
 
 sudo systemctl daemon-reload
 sudo systemctl enable celestia-bridge
 sudo systemctl restart celestia-bridge
+
+echo "==========================================================================================================================="     
+
+
+echo -e '\e[32mCheck your celestia-bridge node status\e[39m' && sleep 3
+if [[ `service celestia-bridge status | grep active` =~ "running" ]]; then
+  echo -e "Your celestia-bridge node \e[32minstalled and running normally\e[39m!"
+else
+  echo -e "Your celestia-bridge node\e[31mwas failed installed\e[39m, Please Re-install."
+fi
