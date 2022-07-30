@@ -24,21 +24,25 @@ wget -q -O Mamaki.sh https://raw.githubusercontent.com/NunoyHaxxana/Celestia/mai
 wget -q -O Bridge_Node.sh https://raw.githubusercontent.com/NunoyHaxxana/Celestia/main/Bridge_Node.sh && chmod +x Bridge_Node.sh && sudo /bin/bash Bridge_Node.sh
 ```
 
-## 3. Faucet token
+## 3. Check Syncing latest blocks
 
-Make sure your validator is syncing lastest blocks. 
-You can use command below to check synchronization lastest blocks and status sync.
+Make sure your validator is syncing latest blocks. 
+You can use command below to check synchronization latest blocks and status sync.
+
+### Wait sync time 1-3 hr.
+check last block height equal to https://celestia.explorers.guru/ and catching_up = false
+
+
 ```
 celestia-appd status 2>&1 | jq .SyncInfo
 ```
 
-The result should be something like this: ```json 
-{"catching_up": false,} 
-```
+The result should be something like this: 
+
 
 
 ```json
-{
+
   "latest_block_hash": "348246EB28F58BD98A6FD393FCA192E5AD960F04311850E236FDE9F08332F44D",
   "latest_app_hash": "B374929346A19C17EC9DFFA9DDB355448B0F1F050BA0830B7110A4B1E18CD5CE",
   "latest_block_height": "155760",
@@ -58,13 +62,47 @@ The result should be something like this: ```json
   "snapshot_chunks_total": "0",
   "backfilled_blocks": "0",
   "backfill_blocks_total": "0"
-}
+
 ```
 
-## 4. Connect Validator
+## 4. Faucet testnet tokens
+
+After your validator sync complete, You need Faucet testnet tokens on [Celestia discord](https://discord.gg/7uAkDSZrbH):
+1) navigate to `#🚰｜faucet ` channel
+2) post your celstia  wallet address in format 
+```
+$request <YOUR_WALLET_ADDRESS>
+```
+
+
+
+
+## 5. Verify your balance
+
+Verify your balance before run Validator with command
+```
+celestia-appd query bank balances $WALLET_ADDRESS
+```
+
+The result should be something like this: 
+
+```json
+balances:
+- amount: "1000000"
+  denom: celes
+pagination:
+  next_key: null
+  total: "0"
+  ```
+
+
+## 6. Connect Validator
+
 
 ```
 
 wget -q -O create-validator.sh https://raw.githubusercontent.com/NunoyHaxxana/Celestia/main/create-validator.sh && chmod +x create-validator.sh && sudo /bin/bash create-validator.sh
 ```
 
+## 7. Verify your Validator
+Go to https://celestia.explorers.guru/validators and insert your VALOPER_ADDRESS for check
