@@ -16,16 +16,13 @@ sleep 1
 
 #function Updatingpackages 
 echo -e "\e[1m\e[32mInstalling required tool \e[0m" && sleep 1
-sudo  apt update && apt install git sudo unzip wget -y < "/dev/null"
+sudo apt update && apt install git sudo unzip wget -y < "/dev/null"
 
 
 
 #function Installingdependencies 
 echo -e "\e[1m\e[32mInstalling dependencies \e[0m" && sleep 1
 sudo apt install curl tar wget vim clang pkg-config libssl-dev jq build-essential git make ncdu -y < "/dev/null"
-
-
-
 
 
 #function Installinggo 
