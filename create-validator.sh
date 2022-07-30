@@ -31,7 +31,7 @@ celestia-appd tx staking create-validator -y \
   
   sleep 60
   
-  celestia-appd tx slashing unjail --chain-id mamaki --from $WALLET --gas=auto -y
+celestia-appd tx slashing unjail --from=$WALLET_ADDRESS --chain-id=mamaki 
 
     
   
