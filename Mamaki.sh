@@ -165,6 +165,20 @@ sudo systemctl restart celestia-appd
 echo "==========================================================================================================================="        
 echo " "
 
+echo "==========================================================================================================================="     
+
+
+echo -e '\e[32mCheck your celestia fullnode status\e[39m' && sleep 3
+if [[ `service celestia-appd status | grep active` =~ "running" ]]; then
+  echo -e "Your celestia fullnode \e[32minstalled and running normally\e[39m!"
+else
+  echo -e "Your celestia fullnode \e[31mwas failed installed\e[39m, Please Re-install."
+fi
+
+echo " "
+
+echo "==========================================================================================================================="     
+
 #function setupwallet 
 echo -e "\e[1m\e[32mSetup Wallet \e[0m" && sleep 1
 echo -e "\e[1m\e[31m **Important** Please write this mnemonic phrase in a safe place. \e[0m" && sleep 1
@@ -184,14 +198,5 @@ source $HOME/.bash_profile
 
 
 
-echo "==========================================================================================================================="     
-
-
-echo -e '\e[32mCheck your celestia fullnode status\e[39m' && sleep 3
-if [[ `service celestia-appd status | grep active` =~ "running" ]]; then
-  echo -e "Your celestia fullnode \e[32minstalled and running normally\e[39m!"
-else
-  echo -e "Your celestia fullnode \e[31mwas failed installed\e[39m, Please Re-install."
-fi
 
 
