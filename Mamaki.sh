@@ -89,6 +89,15 @@ sed -i.bak -e "s/^bootstrap-peers *=.*/bootstrap-peers = \"$BOOTSTRAP_PEERS\"/" 
 sed -i.bak -e "s/^persistent-peers *=.*/persistent-peers = \"$PEERS\"/" $HOME/.celestia-app/config/config.toml
 
 
+#function  set P2P Configuration Options
+max_num_inbound_peers=0
+max_num_outbound_peers=0
+max_connections=45
+
+sed -i -e "s/^use-legacy *=.*/use-legacy = false/;\
+s/^max-num-inbound-peers *=.*/max-num-inbound-peers = $max_num_inbound_peers/;\
+s/^max-num-outbound-peers *=.*/max-num-outbound-peers = $max_num_outbound_peers/;\
+s/^max-connections *=.*/max-connections = $max_connections/" $HOME/.celestia-app/config/config.toml
 
 
 
