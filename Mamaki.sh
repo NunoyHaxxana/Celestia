@@ -82,8 +82,8 @@ cp $HOME/networks/mamaki/genesis.json $HOME/.celestia-app/config
 echo -e "\e[1m\e[32mSet seeds and peers  \e[0m" && sleep 1
 curl -s https://rpc-mamaki.pops.one/net_info | jq -r '.result.peers[] | .url'  > $HOME/.celestia-app/config/bootstrap-peers.txt
 sed -i s/$/,/ $HOME/.celestia-app/config/bootstrap-peers.txt
-#BOOTSTRAP_PEERS=$(cat $HOME/.celestia-app/config/bootstrap-peers.txt | tr -d '\n' | sed '$ s/.$//')
-BOOTSTRAP_PEERS=$(curl -sL https://raw.githubusercontent.com/celestiaorg/networks/master/mamaki/bootstrap-peers.txt | tr -d '\n')
+BOOTSTRAP_PEERS=$(cat $HOME/.celestia-app/config/bootstrap-peers.txt | tr -d '\n' | sed '$ s/.$//')
+#BOOTSTRAP_PEERS=$(curl -sL https://raw.githubusercontent.com/celestiaorg/networks/master/mamaki/bootstrap-peers.txt | tr -d '\n')
 MY_PEER=$(celestia-appd tendermint show-node-id)@$(curl -s ifconfig.me)$(grep -A 9 "\[p2p\]" ~/.celestia-app/config/config.toml | egrep -o ":[0-9]+")
 PEERS=$(curl -sL https://raw.githubusercontent.com/celestiaorg/networks/master/mamaki/peers.txt | tr -d '\n' | head -c -1 | sed s/"$MY_PEER"// | sed "s/,,/,/g")
 sed -i.bak -e "s/^bootstrap-peers *=.*/bootstrap-peers = \"$BOOTSTRAP_PEERS\"/" $HOME/.celestia-app/config/config.toml
@@ -93,10 +93,10 @@ sed -i.bak -e "s/^persistent-peers *=.*/persistent-peers = \"$PEERS\"/" $HOME/.c
 #function setP2PConfigurationOptions
 use_legacy="false"
 pex="true"
-max_connections="90"
+max_connections="50"
+max_num_inbound_peers=40
+max_num_outbound_peers=10
 peer_gossip_sleep_duration="2ms"
-max_num_inbound_peers=70
-max_num_outbound_peers=20
 
 sed -i.bak -e "s/^use-legacy *=.*/use-legacy = \"$use_legacy\"/" $HOME/.celestia-app/config/config.toml
 sed -i.bak -e "s/^pex *=.*/pex = \"$pex\"/" $HOME/.celestia-app/config/config.toml
