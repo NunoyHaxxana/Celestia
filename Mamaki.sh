@@ -94,8 +94,8 @@ use_legacy="false"
 pex="true"
 max_connections="90"
 peer_gossip_sleep_duration="2ms"
-max_num_inbound_peers=0
-max_num_outbound_peers=0
+max_num_inbound_peers=70
+max_num_outbound_peers=20
 
 sed -i.bak -e "s/^use-legacy *=.*/use-legacy = \"$use_legacy\"/" $HOME/.celestia-app/config/config.toml
 sed -i.bak -e "s/^pex *=.*/pex = \"$pex\"/" $HOME/.celestia-app/config/config.toml
