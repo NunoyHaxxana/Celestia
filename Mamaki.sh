@@ -158,18 +158,31 @@ echo " "
 
 #function setupwallet 
 echo -e "\e[1m\e[32mSetup Wallet \e[0m" && sleep 1
+echo -e "\e[1m\e[31m **Important** Please write this mnemonic phrase in a safe place. \e[0m" && sleep 1
 celestia-appd keys add $WALLET
 echo " "
 echo "==========================================================================================================================="        
 echo " "
 
-echo -e "\e[1m\e[32mYour celestia Wallet address : $(celestia-appd keys show ${WALLET} -a)\e[0m" && sleep 1
-echo -e "\e[1m\e[32mYour celestia Validator address : $(celestia-appd keys show ${WALLET} --bech val -a)\e[0m" && sleep 1
+echo -e "\e[1m\e[33mYour celestia Wallet address : $(celestia-appd keys show ${WALLET} -a)\e[0m" && sleep 1
+echo -e "\e[1m\e[34mYour celestia Validator address : $(celestia-appd keys show ${WALLET} --bech val -a)\e[0m" && sleep 1
 
 echo " "
 echo "==========================================================================================================================="        
 echo 'export WALLET_ADDRESS='$(celestia-appd keys show ${WALLET} -a) >> $HOME/.bash_profile
 echo 'export VALOPER_ADDRESS='$(celestia-appd keys show ${WALLET} --bech val -a) >> $HOME/.bash_profile
 source $HOME/.bash_profile
+
+
+
+echo "==========================================================================================================================="     
+
+
+echo -e '\e[32mCheck your celestia fullnode status\e[39m' && sleep 3
+if [[ `service celestia-appd status | grep active` =~ "running" ]]; then
+  echo -e "Your celestia fullnode \e[32minstalled and running normally\e[39m!"
+else
+  echo -e "Your celestia fullnode \e[31mwas failed installed\e[39m, Please Re-install."
+fi
 
 
