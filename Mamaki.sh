@@ -92,7 +92,8 @@ sed -i.bak -e "s/^persistent-peers *=.*/persistent-peers = \"$PEERS\"/" $HOME/.c
 #function setP2PConfigurationOptions
 use_legacy="false"
 pex="true"
-max_connections="90"
+max_connections="45"
+#max_connections="90"
 peer_gossip_sleep_duration="2ms"
 max_num_inbound_peers=70
 max_num_outbound_peers=20
