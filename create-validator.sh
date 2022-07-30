@@ -18,6 +18,7 @@ source $HOME/.bash_profile
 echo -e "\e[1m\e[32mRun a Validator Node \e[0m" && sleep 1
 
 celestia-appd tx staking create-validator \
+  --y \
   --amount 10000000utia \
   --from $WALLET \
   --moniker $NODENAME \
