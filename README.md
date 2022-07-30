@@ -105,4 +105,7 @@ wget -q -O create-validator.sh https://raw.githubusercontent.com/NunoyHaxxana/Ce
 ```
 
 ## 7. Verify your Validator
-Go to https://celestia.explorers.guru/validators and insert your VALOPER_ADDRESS for check
+Go to https://celestia.explorers.guru and insert your VALOPER_ADDRESS , Press enter for check
+
+![image](https://user-images.githubusercontent.com/83507970/182002233-667be61c-74a1-4a41-bdbb-d3a46747e441.png)
+
