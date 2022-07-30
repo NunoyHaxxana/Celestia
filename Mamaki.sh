@@ -93,9 +93,9 @@ sed -i.bak -e "s/^persistent-peers *=.*/persistent-peers = \"$PEERS\"/" $HOME/.c
 #function setP2PConfigurationOptions
 use_legacy="false"
 pex="true"
-max_connections="50"
-max_num_inbound_peers=40
-max_num_outbound_peers=10
+max_connections="45"
+max_num_inbound_peers=0
+max_num_outbound_peers=0
 peer_gossip_sleep_duration="2ms"
 
 sed -i.bak -e "s/^use-legacy *=.*/use-legacy = \"$use_legacy\"/" $HOME/.celestia-app/config/config.toml
