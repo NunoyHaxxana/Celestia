@@ -30,9 +30,6 @@ Make sure your validator is syncing latest blocks.
 You can use command below to check synchronization latest blocks and status sync.
 
 ### Wait sync time 1-3 hr.
-check last block height equal to https://celestia.explorers.guru/ and catching_up = false
-
-![image](https://user-images.githubusercontent.com/83507970/182002293-aad8514b-ff0b-435e-8a3a-7e0998ba9bf5.png)
 
 
 
@@ -48,7 +45,7 @@ The result should be something like this:
 
   "latest_block_hash": "348246EB28F58BD98A6FD393FCA192E5AD960F04311850E236FDE9F08332F44D",
   "latest_app_hash": "B374929346A19C17EC9DFFA9DDB355448B0F1F050BA0830B7110A4B1E18CD5CE",
-  "latest_block_height": "155760",
+  "latest_block_height": "155777",
   "latest_block_time": "2022-07-30T21:43:25.070041966Z",
   "earliest_block_hash": "41BBFD05779719E826C4D68C4CCBBC84B2B761EB52BC04CFDE0FF8603C9AA3CA",
   "earliest_app_hash": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
@@ -67,6 +64,12 @@ The result should be something like this:
   "backfill_blocks_total": "0"
 
 ```
+check ```last block height``` equal to https://celestia.explorers.guru/ and ```catching_up = false```
+
+![image](https://user-images.githubusercontent.com/83507970/182002293-aad8514b-ff0b-435e-8a3a-7e0998ba9bf5.png)
+
+
+
 
 ## 4. Faucet testnet tokens
 
