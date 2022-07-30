@@ -58,7 +58,7 @@ git clone https://github.com/celestiaorg/networks.git
 
 
 #function setupconfig 
-echo -e "\e[1m\e[32mSetup mamaki config \e[0m" && sleep 1
+echo -e "\e[1m\e[32mSetup Node & Wallet \e[0m" && sleep 1
 read -p "Insert node name: " nodename && sleep 2
 echo 'export NODENAME='${nodename} >> $HOME/.bash_profile
 celestia-appd init ${nodename} --chain-id mamaki && sleep 2
