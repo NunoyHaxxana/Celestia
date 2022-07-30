@@ -32,6 +32,9 @@ You can use command below to check synchronization latest blocks and status sync
 ### Wait sync time 1-3 hr.
 check last block height equal to https://celestia.explorers.guru/ and catching_up = false
 
+![image](https://user-images.githubusercontent.com/83507970/182002293-aad8514b-ff0b-435e-8a3a-7e0998ba9bf5.png)
+
+
 
 ```
 celestia-appd status 2>&1 | jq .SyncInfo
