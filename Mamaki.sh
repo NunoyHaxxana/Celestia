@@ -119,6 +119,8 @@ sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_rec
 sed -i -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"$pruning_keep_every\"/" $HOME/.celestia-app/config/app.toml
 sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.celestia-app/config/app.toml
 
+sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.celestia-app/config/config.toml
+
 
 #function setvalidatormode
 echo -e "\e[1m\e[32mSet validator node  \e[0m" && sleep 1
