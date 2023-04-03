@@ -39,6 +39,7 @@ and wait to script install complete
 
 Select Option 3 Get Node ID
 and wait to script install complete
+### This step gen wallet and Please write you mnemonic phrase.
 
 
 
