@@ -23,7 +23,7 @@ sudo su
 
 ```
 wget -q -O lightnodes.sh https://raw.githubusercontent.com/Contribution-DAO/Celestia/main/Thai/Light%20nodes/Autolight.sh && chmod +x lightnodes.sh && sudo /bin/bash lightnodes.sh
-
+```
 
 
 Select Option 1 and wait to script install complete
