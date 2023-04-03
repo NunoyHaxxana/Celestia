@@ -26,30 +26,30 @@ wget -q -O lightnodes.sh https://raw.githubusercontent.com/Contribution-DAO/Cele
 ```
 
 
-Select Option 1 Install
+## Select Option 1 Install
 
 and wait to script install complete
 
 
 
-Select Option 2 Get Wallet
+## Select Option 2 Get Wallet
 and wait to script install complete
 
 
 
-Select Option 3 Get Node ID
+## Select Option 3 Get Node ID
 and wait to script install complete
-### This step gen wallet and Please write you mnemonic phrase.
+### *This step gen wallet and Please write you mnemonic phrase.
 
 
 
-Select Option 4 Restart
+## Select Option 4 Restart
 and wait to script install complete
 
 ![image](https://user-images.githubusercontent.com/83507970/229556254-406f0a1f-32ec-4a14-9c06-f0671a67d105.png)
 
 
-Select Option 6 Quit
+## Select Option 6 Quit
 for quick menu
 
 
