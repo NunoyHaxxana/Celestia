@@ -48,19 +48,31 @@ Select Option 4 and wait to script install complete
 ## 2. Useful commands
 
 Check Service Status
-```systemctl status celestia-lightd```
+
+```
+systemctl status celestia-lightd
+```
 
 
 Restart Node
-```systemctl restart celestia-lightd```
+
+```
+systemctl restart celestia-lightd
+```
 
 
 Stop Node
-```systemctl stop celestia-lightd```
+
+```
+systemctl stop celestia-lightd
+```
 
 
 List Wallet
-```./cel-key list --node.type light --keyring-backend test --p2p.network blockspacerace```
+
+```
+./cel-key list --node.type light --keyring-backend test --p2p.network blockspacerace
+```
 
 
 
